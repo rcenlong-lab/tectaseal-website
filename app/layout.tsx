@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   },
   description:
     "PVC and TPO single-ply roofing membranes, prefabricated details, drains, fasteners and project-specific export supply.",
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: "/assets/tectaseal-mark.png",
     shortcut: "/assets/tectaseal-mark.png",

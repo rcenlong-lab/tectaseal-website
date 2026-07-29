@@ -111,6 +111,8 @@ export default function Home() {
           <img
             src="/assets/factory-pvc.jpg"
             alt="PVC membrane production equipment at the selected manufacturing partner"
+            fetchPriority="high"
+            decoding="async"
           />
           <div className="hero-visual-shade" />
           <div className="hero-tag hero-tag-top">SYSTEM SUPPLY</div>
@@ -162,6 +164,8 @@ export default function Home() {
               <img
                 src="/assets/pvc_types.png"
                 alt="Actual PVC membrane configuration imagery supplied by the production partner"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </article>
@@ -187,6 +191,8 @@ export default function Home() {
               <img
                 src="/assets/factory-tpo.jpg"
                 alt="TPO production equipment at the selected manufacturing partner"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </article>
@@ -209,7 +215,12 @@ export default function Home() {
           {accessoryItems.map((item) => (
             <article className="accessory-card" key={item.number}>
               <div className="accessory-image">
-                <img src={item.image} alt={item.title} />
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  loading="lazy"
+                  decoding="async"
+                />
                 <span>{item.number}</span>
               </div>
               <h3>{item.title}</h3>
@@ -235,13 +246,17 @@ export default function Home() {
         <div className="manufacturing-gallery">
           <img
             className="gallery-main"
-            src="/assets/factory-line.jpg"
-            alt="PVC membrane production line"
+            src="/assets/factory-pvc.jpg"
+            alt="PVC membrane production equipment"
+            loading="lazy"
+            decoding="async"
           />
           <img
             className="gallery-secondary"
-            src="/assets/factory-tpo.jpg"
-            alt="TPO production line"
+            src="/assets/factory-line.jpg"
+            alt="Membrane calendering production line"
+            loading="lazy"
+            decoding="async"
           />
           <div className="gallery-label">
             <span>MANUFACTURING PARTNERSHIP</span>
@@ -303,7 +318,13 @@ export default function Home() {
           {complianceItems.map((item) => (
             <article className="document-card" key={item.title}>
               <div className="document-preview">
-                <img src={item.image} alt="" aria-hidden="true" />
+                <img
+                  src={item.image}
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                  decoding="async"
+                />
                 <div className="document-lock">
                   <span aria-hidden="true">●</span>
                   REDACTED PREVIEW

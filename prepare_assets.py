@@ -2,10 +2,12 @@ from pathlib import Path
 from shutil import copy2
 
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter
+from pypdf import PdfReader
 
 
 SITE = Path(__file__).resolve().parent
 SOURCE = SITE.parent / "work" / "source_extracts"
+SOURCE_PDF = SITE.parent / "tmp" / "pdfs" / "source-advantages.pdf"
 OUTPUTS = SITE.parent / "outputs" / "FINAL_SEND_TO_CUSTOMER"
 ASSETS = SITE / "public" / "assets"
 DOCS = SITE / "public" / "downloads"
@@ -35,14 +37,43 @@ def save_photo(source: Path, target: Path, crop=None, size=(1400, 900)):
     image.save(target, quality=88, optimize=True)
 
 
+def extract_pdf_image(page_number: int, image_name: str) -> Image.Image:
+    reader = PdfReader(SOURCE_PDF)
+    for embedded in reader.pages[page_number - 1].images:
+        if embedded.name == image_name:
+            return embedded.image.convert("RGB")
+    raise FileNotFoundError(
+        f"Embedded image {image_name} was not found on PDF page {page_number}"
+    )
+
+
+def save_embedded_photo(
+    page_number: int,
+    image_name: str,
+    target: Path,
+    *,
+    rotate: int = 0,
+    upscale_to=None,
+):
+    image = extract_pdf_image(page_number, image_name)
+    if rotate:
+        image = image.rotate(rotate, expand=True)
+    if upscale_to:
+        image = image.resize(upscale_to, Image.Resampling.LANCZOS)
+        image = image.filter(ImageFilter.UnsharpMask(radius=1.1, percent=115, threshold=3))
+    image = ImageEnhance.Contrast(image).enhance(1.035)
+    image = ImageEnhance.Color(image).enhance(0.97)
+    image.save(target, quality=92, optimize=True, progressive=True)
+
+
 def save_document_preview(source: Path, target: Path, crop=None):
     image = Image.open(source).convert("RGB")
     if crop:
         image = image.crop(crop)
     image.thumbnail((1100, 650), Image.Resampling.LANCZOS)
-    image = image.filter(ImageFilter.GaussianBlur(3.2))
-    image = ImageEnhance.Contrast(image).enhance(0.88)
-    overlay = Image.new("RGBA", image.size, (2, 39, 75, 82))
+    image = ImageEnhance.Contrast(image).enhance(1.04)
+    image = image.filter(ImageFilter.UnsharpMask(radius=0.8, percent=110, threshold=3))
+    overlay = Image.new("RGBA", image.size, (2, 39, 75, 24))
     image = Image.alpha_composite(image.convert("RGBA"), overlay)
     draw = ImageDraw.Draw(image)
     band_height = max(18, image.height // 12)
@@ -53,24 +84,15 @@ def save_document_preview(source: Path, target: Path, crop=None):
     image.convert("RGB").save(target, quality=82, optimize=True)
 
 
-# Actual production imagery supplied by the selected manufacturing partner.
-save_photo(
-    SOURCE / "pvc_production.png",
-    ASSETS / "factory-pvc.jpg",
-    crop=(18, 170, 548, 470),
-    size=(1500, 900),
-)
-save_photo(
-    SOURCE / "pvc_production.png",
-    ASSETS / "factory-line.jpg",
-    crop=(660, 0, 1070, 242),
-    size=(1200, 760),
-)
-save_photo(
-    SOURCE / "tpo_production.png",
+# Actual production imagery extracted directly from the source PDF rather
+# than enlarged from page screenshots. This preserves the available detail.
+save_embedded_photo(10, "IM100.jpg", ASSETS / "factory-pvc.jpg")
+save_embedded_photo(10, "IM106.jpg", ASSETS / "factory-line.jpg")
+save_embedded_photo(
+    20,
+    "IM233.jpg",
     ASSETS / "factory-tpo.jpg",
-    crop=(310, 32, 1115, 500),
-    size=(1500, 900),
+    upscale_to=(1280, 720),
 )
 
 # Product and system imagery already cleaned of the former brochure header.
