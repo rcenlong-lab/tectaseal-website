@@ -46,6 +46,77 @@ const accessoryItems = [
   },
 ];
 
+const installationClips = [
+  {
+    number: "02",
+    title: "Membrane positioning",
+    source: "/media/project-installation-02.mp4",
+    poster: "/assets/field-rollout.webp",
+  },
+  {
+    number: "03",
+    title: "Large-area installation",
+    source: "/media/project-installation-03.mp4",
+    poster: "/assets/field-roof-scale.webp",
+  },
+  {
+    number: "04",
+    title: "Mechanical fastening",
+    source: "/media/project-installation-04.mp4",
+    poster: "/assets/field-mechanical-fixing.webp",
+  },
+  {
+    number: "05",
+    title: "Hot-air welding",
+    source: "/media/project-installation-05.mp4",
+    poster: "/assets/field-welding-wide.webp",
+  },
+  {
+    number: "06",
+    title: "Detail completion",
+    source: "/media/project-installation-06.mp4",
+    poster: "/assets/field-hot-air-detail.webp",
+  },
+];
+
+const installationGallery = [
+  {
+    title: "Roof-wide membrane layout",
+    image: "/assets/field-roof-scale.webp",
+    className: "project-tile-wide",
+  },
+  {
+    title: "Insulation and fixing pattern",
+    image: "/assets/field-insulation-layout.webp",
+    className: "project-tile-standard",
+  },
+  {
+    title: "Fastener plate detail",
+    image: "/assets/field-fastener-detail.webp",
+    className: "project-tile-standard",
+  },
+  {
+    title: "Membrane rollout",
+    image: "/assets/field-rollout.webp",
+    className: "project-tile-portrait",
+  },
+  {
+    title: "Mechanical fixing detail",
+    image: "/assets/field-mechanical-fixing.webp",
+    className: "project-tile-standard",
+  },
+  {
+    title: "Hot-air seam welding",
+    image: "/assets/field-welding-wide.webp",
+    className: "project-tile-wide",
+  },
+  {
+    title: "Completed roof detailing",
+    image: "/assets/field-welding-detail.webp",
+    className: "project-tile-standard",
+  },
+];
+
 export default function Home() {
   return (
     <main>
@@ -59,6 +130,7 @@ export default function Home() {
         <nav aria-label="Primary navigation">
           <a href="#systems">Systems</a>
           <a href="#components">Components</a>
+          <a href="#projects">Projects</a>
           <a href="#manufacturing">Manufacturing</a>
           <a href="#documents">Documentation</a>
         </nav>
@@ -109,8 +181,8 @@ export default function Home() {
         </div>
         <div className="hero-visual">
           <img
-            src="/assets/factory-pvc.jpg"
-            alt="PVC membrane production equipment at the selected manufacturing partner"
+            src="/assets/production-line-main.webp"
+            alt="Membrane production equipment at the selected manufacturing partner"
             fetchPriority="high"
             decoding="async"
           />
@@ -189,8 +261,8 @@ export default function Home() {
             </div>
             <div className="system-image tpo-image">
               <img
-                src="/assets/factory-tpo.jpg"
-                alt="TPO production equipment at the selected manufacturing partner"
+                src="/assets/tpo-production-line.webp"
+                alt="Clear production-line view at the selected manufacturing partner"
                 loading="lazy"
                 decoding="async"
               />
@@ -246,15 +318,15 @@ export default function Home() {
         <div className="manufacturing-gallery">
           <img
             className="gallery-main"
-            src="/assets/factory-pvc.jpg"
-            alt="PVC membrane production equipment"
+            src="/assets/production-line-main.webp"
+            alt="Wide view of membrane production equipment"
             loading="lazy"
             decoding="async"
           />
           <img
             className="gallery-secondary"
-            src="/assets/factory-line.jpg"
-            alt="Membrane calendering production line"
+            src="/assets/production-line-secondary.webp"
+            alt="Membrane production line operating area"
             loading="lazy"
             decoding="async"
           />
@@ -298,6 +370,179 @@ export default function Home() {
               </p>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section className="section production-flow" aria-labelledby="production-flow-title">
+        <div className="production-flow-intro">
+          <p className="eyebrow">PRODUCTION TO DISPATCH</p>
+          <h2 id="production-flow-title">
+            Manufacturing depth, carried through to export loading.
+          </h2>
+          <p>
+            Real production and dispatch imagery from the selected manufacturing
+            and fulfilment workflow.
+          </p>
+        </div>
+        <div className="production-flow-grid">
+          <article className="production-flow-card production-flow-card-wide">
+            <img
+              src="/assets/production-line-wide.webp"
+              alt="Wide membrane production line"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <span>01 / PRODUCTION</span>
+              <h3>Continuous membrane line</h3>
+              <p>Industrial equipment for controlled roll production.</p>
+            </div>
+          </article>
+          <article className="production-flow-card">
+            <img
+              src="/assets/production-material-handling.webp"
+              alt="Raw-material handling and processing equipment"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <span>02 / HANDLING</span>
+              <h3>Material preparation</h3>
+              <p>Dedicated handling equipment supports repeatable processing.</p>
+            </div>
+          </article>
+          <article className="production-flow-card">
+            <img
+              src="/assets/logistics-pallet-loading.webp"
+              alt="Wrapped membrane rolls secured on pallets inside a container"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <span>03 / LOAD PLAN</span>
+              <h3>Protected pallet loading</h3>
+              <p>Wrapped rolls are palletised and secured for export handling.</p>
+            </div>
+          </article>
+          <article className="production-flow-card production-flow-card-wide">
+            <img
+              src="/assets/logistics-container-loading.webp"
+              alt="Container being loaded with wrapped membrane rolls"
+              loading="lazy"
+              decoding="async"
+            />
+            <div>
+              <span>04 / DISPATCH</span>
+              <h3>Container-ready shipment</h3>
+              <p>Consolidated membrane and accessory orders prepared for dispatch.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section className="section field-work" id="projects">
+        <div className="section-heading field-heading">
+          <div>
+            <p className="eyebrow">FIELD INSTALLATIONS</p>
+            <h2>Real roofs. Real installation sequences.</h2>
+          </div>
+          <p>
+            Selected customer-site footage showing insulation layout, membrane
+            positioning, mechanical fastening and hot-air seam work on
+            large-area single-ply roofs.
+          </p>
+        </div>
+
+        <div className="field-feature">
+          <figure className="field-feature-video">
+            <video
+              controls
+              playsInline
+              preload="metadata"
+              poster="/assets/field-overview.webp"
+              aria-label="Customer-site roofing installation video"
+            >
+              <source
+                src="/media/project-installation-main.mp4"
+                type="video/mp4"
+              />
+              Your browser does not support HTML5 video.
+            </video>
+            <figcaption>
+              <span className="video-status">
+                <i aria-hidden="true" />
+                CUSTOMER-SITE FOOTAGE
+              </span>
+              <strong>01 / Full installation overview</strong>
+            </figcaption>
+          </figure>
+
+          <aside className="field-feature-copy">
+            <span>ROOFING SYSTEM IN PRACTICE</span>
+            <h3>From substrate preparation to welded field seams.</h3>
+            <p>
+              The sequence demonstrates the coordination required across
+              insulation, fixing layout, membrane alignment and heat-welded
+              detailing.
+            </p>
+            <ol>
+              <li>
+                <span>01</span>
+                Insulation and fixing pattern
+              </li>
+              <li>
+                <span>02</span>
+                Membrane positioning and fastening
+              </li>
+              <li>
+                <span>03</span>
+                Hot-air welding and detail completion
+              </li>
+            </ol>
+          </aside>
+        </div>
+
+        <div className="clip-rail" aria-label="Additional installation videos">
+          {installationClips.map((clip) => (
+            <figure className="clip-card" key={clip.number}>
+              <div className="clip-video">
+                <video
+                  controls
+                  playsInline
+                  preload="none"
+                  poster={clip.poster}
+                  aria-label={`${clip.title} installation video`}
+                >
+                  <source src={clip.source} type="video/mp4" />
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+              <figcaption>
+                <span>{clip.number}</span>
+                <strong>{clip.title}</strong>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+
+        <div className="project-gallery" aria-label="Installation image gallery">
+          {installationGallery.map((item, index) => (
+            <figure
+              className={`project-tile ${item.className}`}
+              key={item.image}
+            >
+              <img
+                src={item.image}
+                alt={item.title}
+                loading="lazy"
+                decoding="async"
+              />
+              <figcaption>
+                <span>{String(index + 1).padStart(2, "0")}</span>
+                {item.title}
+              </figcaption>
+            </figure>
+          ))}
         </div>
       </section>
 

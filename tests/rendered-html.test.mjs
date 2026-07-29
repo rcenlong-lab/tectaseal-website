@@ -32,6 +32,10 @@ test("server-renders the TECTASEAL commercial site", async () => {
   assert.match(html, /TECTASEAL \| PVC &amp; TPO Roofing Systems/i);
   assert.match(html, /PVC &amp; TPO SINGLE-PLY ROOFING SYSTEMS/i);
   assert.match(html, /MANUFACTURING &amp; COMPLIANCE DOCUMENTATION/i);
+  assert.match(html, /FIELD INSTALLATIONS/i);
+  assert.match(html, /PRODUCTION TO DISPATCH/i);
+  assert.match(html, /project-installation-main\.mp4/i);
+  assert.match(html, /tpo-production-line\.webp/i);
   assert.match(html, /export@tectaseal\.com/i);
   assert.match(html, /wa\.me\/8618105236093/i);
   assert.match(html, /facebook\.com\/profile\.php\?id=61592341354509/i);
@@ -45,6 +49,13 @@ test("ships the required downloads and brand assets", async () => {
     access(new URL("../public/CNAME", import.meta.url)),
     access(new URL("../public/.nojekyll", import.meta.url)),
     access(new URL("../public/assets/factory-pvc.jpg", import.meta.url)),
+    access(
+      new URL("../public/assets/tpo-production-line.webp", import.meta.url),
+    ),
+    access(new URL("../public/assets/field-overview.webp", import.meta.url)),
+    access(
+      new URL("../public/media/project-installation-main.mp4", import.meta.url),
+    ),
     access(
       new URL(
         "../public/downloads/TECTASEAL_Roofing_System_Overview.pdf",
