@@ -261,7 +261,7 @@ export default function Home() {
             </div>
             <div className="system-image tpo-image">
               <img
-                src="/assets/tpo-production-line.webp"
+                src="/assets/production-tpo-line-redacted.webp"
                 alt="Clear production-line view at the selected manufacturing partner"
                 loading="lazy"
                 decoding="async"
@@ -318,14 +318,14 @@ export default function Home() {
         <div className="manufacturing-gallery">
           <img
             className="gallery-main"
-            src="/assets/production-line-main.webp"
+            src="/assets/production-tpo-line-redacted.webp"
             alt="Wide view of membrane production equipment"
             loading="lazy"
             decoding="async"
           />
           <img
             className="gallery-secondary"
-            src="/assets/production-line-secondary.webp"
+            src="/assets/production-machine-detail-redacted.webp"
             alt="Membrane production line operating area"
             loading="lazy"
             decoding="async"
@@ -387,7 +387,7 @@ export default function Home() {
         <div className="production-flow-grid">
           <article className="production-flow-card production-flow-card-wide">
             <img
-              src="/assets/production-line-wide.webp"
+              src="/assets/production-pvc-line-redacted.webp"
               alt="Wide membrane production line"
               loading="lazy"
               decoding="async"
@@ -400,7 +400,7 @@ export default function Home() {
           </article>
           <article className="production-flow-card">
             <img
-              src="/assets/production-material-handling.webp"
+              src="/assets/production-hall-redacted.webp"
               alt="Raw-material handling and processing equipment"
               loading="lazy"
               decoding="async"

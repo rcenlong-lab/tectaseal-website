@@ -35,7 +35,7 @@ test("server-renders the TECTASEAL commercial site", async () => {
   assert.match(html, /FIELD INSTALLATIONS/i);
   assert.match(html, /PRODUCTION TO DISPATCH/i);
   assert.match(html, /project-installation-main\.mp4/i);
-  assert.match(html, /tpo-production-line\.webp/i);
+  assert.match(html, /production-tpo-line-redacted\.webp/i);
   assert.match(html, /export@tectaseal\.com/i);
   assert.match(html, /wa\.me\/8618105236093/i);
   assert.match(html, /facebook\.com\/profile\.php\?id=61592341354509/i);
@@ -50,7 +50,16 @@ test("ships the required downloads and brand assets", async () => {
     access(new URL("../public/.nojekyll", import.meta.url)),
     access(new URL("../public/assets/factory-pvc.jpg", import.meta.url)),
     access(
-      new URL("../public/assets/tpo-production-line.webp", import.meta.url),
+      new URL(
+        "../public/assets/production-tpo-line-redacted.webp",
+        import.meta.url,
+      ),
+    ),
+    access(
+      new URL(
+        "../public/assets/production-pvc-line-redacted.webp",
+        import.meta.url,
+      ),
     ),
     access(new URL("../public/assets/field-overview.webp", import.meta.url)),
     access(
