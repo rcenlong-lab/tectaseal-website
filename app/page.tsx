@@ -62,8 +62,13 @@ export default function Home() {
           <a href="#manufacturing">Manufacturing</a>
           <a href="#documents">Documentation</a>
         </nav>
-        <a className="header-cta" href="#contact">
-          Request a quote <Arrow />
+        <a
+          className="header-cta"
+          href="https://wa.me/8618105236093"
+          target="_blank"
+          rel="noreferrer"
+        >
+          WhatsApp sales <Arrow />
         </a>
       </header>
 
@@ -371,9 +376,28 @@ export default function Home() {
           </p>
           <div className="contact-direct">
             <span>DIRECT COMMERCIAL CONTACT</span>
-            <a href="mailto:export@tectaseal.com">
-              export@tectaseal.com <Arrow />
-            </a>
+            <div className="contact-links">
+              <a href="mailto:export@tectaseal.com">
+                <small>Email</small>
+                export@tectaseal.com <Arrow />
+              </a>
+              <a
+                href="https://wa.me/8618105236093"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <small>WhatsApp</small>
+                +86 181 0523 6093 <Arrow />
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=61592341354509"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <small>Facebook</small>
+                Follow TECTASEAL <Arrow />
+              </a>
+            </div>
           </div>
         </div>
         <InquiryForm />
@@ -394,7 +418,13 @@ export default function Home() {
           Product availability, performance and documentation are
           configuration-specific and subject to technical confirmation.
         </p>
-        <span>© 2026 TECTASEAL</span>
+        <div className="footer-contact">
+          <a href="https://wa.me/8618105236093">WhatsApp</a>
+          <a href="mailto:export@tectaseal.com">Email</a>
+          <a href="https://www.facebook.com/profile.php?id=61592341354509">
+            Facebook
+          </a>
+        </div>
       </footer>
     </main>
   );

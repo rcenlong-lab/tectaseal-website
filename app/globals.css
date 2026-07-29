@@ -868,13 +868,28 @@ img {
   letter-spacing: 0.1em;
 }
 
-.contact-direct a {
+.contact-links {
+  display: grid;
+  gap: 12px;
+}
+
+.contact-links a {
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   font-size: 1.05rem;
   font-weight: 800;
+}
+
+.contact-links small {
+  min-width: 74px;
+  color: var(--green);
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .inquiry-form {
@@ -976,6 +991,18 @@ footer {
 
 .footer-note {
   line-height: 1.45;
+}
+
+.footer-contact {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 14px;
+}
+
+.footer-contact a {
+  color: white;
+  font-weight: 800;
 }
 
 @media (max-width: 1080px) {
@@ -1139,6 +1166,10 @@ footer {
 
   footer {
     grid-template-columns: 1fr;
+  }
+
+  .footer-contact {
+    justify-content: flex-start;
   }
 }
 

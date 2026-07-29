@@ -33,6 +33,8 @@ test("server-renders the TECTASEAL commercial site", async () => {
   assert.match(html, /PVC &amp; TPO SINGLE-PLY ROOFING SYSTEMS/i);
   assert.match(html, /MANUFACTURING &amp; COMPLIANCE DOCUMENTATION/i);
   assert.match(html, /export@tectaseal\.com/i);
+  assert.match(html, /wa\.me\/8618105236093/i);
+  assert.match(html, /facebook\.com\/profile\.php\?id=61592341354509/i);
   assert.match(html, /Request a document pack/i);
   assert.doesNotMatch(html, /Oseaguard|欧西盾|codex-preview|SkeletonPreview/i);
 });
@@ -40,6 +42,8 @@ test("server-renders the TECTASEAL commercial site", async () => {
 test("ships the required downloads and brand assets", async () => {
   await Promise.all([
     access(new URL("../public/og.png", import.meta.url)),
+    access(new URL("../public/CNAME", import.meta.url)),
+    access(new URL("../public/.nojekyll", import.meta.url)),
     access(new URL("../public/assets/factory-pvc.jpg", import.meta.url)),
     access(
       new URL(

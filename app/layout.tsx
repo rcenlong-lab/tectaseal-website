@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tectaseal.com"),
+  metadataBase: new URL("https://www.tectaseal.com"),
   title: {
     default: "TECTASEAL | PVC & TPO Roofing Systems",
     template: "%s | TECTASEAL",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://tectaseal.com/og.png",
+        url: "https://www.tectaseal.com/og.png",
         width: 1732,
         height: 909,
         alt: "TECTASEAL PVC and TPO roofing systems",
@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: "TECTASEAL | PVC & TPO Roofing Systems",
     description:
       "Project-ready single-ply roofing supply, from membrane to final detail.",
-    images: ["https://tectaseal.com/og.png"],
+    images: ["https://www.tectaseal.com/og.png"],
   },
 };
 
