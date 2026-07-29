@@ -71,9 +71,9 @@ def save_document_preview(source: Path, target: Path, crop=None):
     if crop:
         image = image.crop(crop)
     image.thumbnail((1100, 650), Image.Resampling.LANCZOS)
-    image = ImageEnhance.Contrast(image).enhance(1.04)
-    image = image.filter(ImageFilter.UnsharpMask(radius=0.8, percent=110, threshold=3))
-    overlay = Image.new("RGBA", image.size, (2, 39, 75, 24))
+    image = image.filter(ImageFilter.GaussianBlur(3.8))
+    image = ImageEnhance.Contrast(image).enhance(0.9)
+    overlay = Image.new("RGBA", image.size, (2, 39, 75, 76))
     image = Image.alpha_composite(image.convert("RGBA"), overlay)
     draw = ImageDraw.Draw(image)
     band_height = max(18, image.height // 12)
